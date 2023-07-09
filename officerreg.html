@@ -1,0 +1,78 @@
+{% extends 'commonbase.html' %}
+{% block content %}
+<style>
+	td,
+	th {
+		padding: 10px;
+	}
+	table {
+		margin: auto;
+	}
+</style>
+<div style="margin: 100px;">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h3 style="text-align: center;">Officre Registration</h3>
+        <table>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" class="form-control" name="txtName" pattern="[a-zA-Z ]+" required /></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><textarea class="form-control" name="txtAddress" required ></textarea></td>
+            </tr>
+            <tr>
+                <td>District</td>
+                <td><select name="dist" class="form-control">
+                    <option value="" selected disabled>Select District</option>
+                    <option>Thiruvananthapuram</option>
+                    <option>Kollam</option>
+                    <option>Pathanamthitta</option>
+                    <option>Alappuzha</option>
+                    <option>Idukki</option>
+                    <option>Kottayam</option>
+                    <option>Ernakulam</option>
+                    <option>Thrissur</option>
+                    <option>Palakkad</option>
+                    <option>Malappuram</option>
+                    <option>Kozhikod</option>
+                    <option>Wayanad</option>
+                    <option>Kannur</option>
+                    <option>Kasargod</option>
+                    </select>
+                </select></td>
+            </tr>
+            <tr>
+                <td>Pincode</td>
+                <td><input type="text" class="form-control" name="pin" pattern="[6][0-9]{5}" maxlength="6" required /></td>
+            </tr>
+            <tr>
+                <td>Contact</td>
+                <td><input type="text" class="form-control" name="txtContact" pattern="[6789][0-9]{9}" maxlength="10" required /></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" class="form-control" name="txtEmail" required /></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" class="form-control" name="txtPwd" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" class="btn btn-primary" name="btnSubmit" required /></td>
+            </tr>
+        </table>
+        
+    </form>
+</div>
+<script>
+    var msg="{{msg}}";
+    if(msg!="")
+        alert(msg);
+    
+               
+</script>
+
+{% endblock %}

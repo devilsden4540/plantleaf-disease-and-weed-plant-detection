@@ -1,0 +1,11 @@
+{% extends 'userbase.html' %} {% block content %}
+<div style="margin: 50px 100px">
+	<form method="POST">
+		{% csrf_token %}
+		&nbsp;&nbsp;
+		<h3 style="margin: -40px 20px 20px 70px">&nbsp;&nbsp;Welcome</h3>
+
+		<!-- <h4>Book your slot from the parking sapce near you.</h4> -->
+	</form>
+</div>
+{% endblock %}
